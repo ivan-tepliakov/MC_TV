@@ -41,179 +41,172 @@
 			},
 			gridTemplateColumns: {
 				temp: 'minmax(0, 1fr) 25rem'
-			}
+			},
+			gridTemplateRows: {
+				temp: 'auto auto minmax(0, 1fr) auto',
+				// Simple 16 row grid
+				'16': 'repeat(16, minmax(0, 1fr))',
+			
+				// Complex site-specific row configuration
+				'layout': '200px minmax(900px, 1fr) 100px',
+			  }
 		  }
 		}
 	  }
 	</script>
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap');
+		
+		*::-webkit-scrollbar {
+		  width: 4px;
+		}
+		
+		*::-webkit-scrollbar-track {
+		  background: #0A0C10;
+		}
+		
+		*::-webkit-scrollbar-thumb {
+		  background-color: #617E9D;
+		}
 
 	</style>
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-<body class="h-screen flex flex-col bg-gray-600" onload="temp()">
-	<header class="pl-3 md:pl-6 flex flex-row items-center justify-between">
-		<img class="h-4 md:h-5" src="https://www.dropbox.com/scl/fi/tzovk80jhhab39cugs1c6/logo.svg?rlkey=xc0zfhurcle574jau72e1o01v&st=9nh8gsic&raw=1" />
+<body class="bg-gray-600" onload="temp()">
+	
+	<div class="h-screen grid grid-rows-temp">
 		
 		
-		
-		<div class="w-[25rem] hidden md:flex flex-row">
-			<a href="#" class="flex-1 flex justify-center items-center gap-3 p-3.5 text-sm font-medium text-white-200 bg-gray-900 hover:bg-gray-800 active:bg-gray-950">
-				<img src="https://www.dropbox.com/scl/fi/wgcbt8l6m0y7gv8blt10y/maincast-icon.svg?rlkey=gekfcimjvbe9gbu56njoa9f24&st=iqe6sqol&raw=1" />
-				<span><span class="uppercase">maincast</span>.com</span>
-				<img src="https://www.dropbox.com/scl/fi/bmzdw0jdxifs3vvqskx74/arrow-up-right-icon.svg?rlkey=hql6mympg84qk2l3j7ziha5h8&st=0foyk94h&raw=1" />
-			</a>
-			<a href="#" class="flex-1 flex justify-center items-center gap-3 p-3.5 text-sm font-medium text-gray-900 bg-blue-200 hover:bg-blue-100 active:bg-blue-300">
-				<img src="https://www.dropbox.com/scl/fi/thmynsf6zvsuzeve1tc6h/afu-icon.svg?rlkey=0r20pjbhc5wpqazifiyccaq83&st=aeuf3xg8&raw=1" />
-				<span class="uppercase">Підтримати ЗСУ</span>
-			</a>
-		</div>
-		
-		
-		<button class="flex md:hidden justify-center items-center gap-3 p-3.5 text-sm font-medium bg-gray-400 hover:bg-gray-300 active:bg-gray-500">
-			<img src="https://www.dropbox.com/scl/fi/5uwc3k8xkz29zkvl34nj7/menu-icon.svg?rlkey=ssllvo5inqqw3blyy4k8r4w4w&st=yno6qqlf&raw=1" />
-		</button>
-	</header>
-	<div class="grow relative flex flex-col">
-		
-		<div v-if="flag" class="absolute inset-0 h-full m-d:flex flex-row bg-gray-400 z-10 px-3 py-6 space-y-6 hidden">
-			<div class="space-y-3">
-				<a href="#" class="flex-1 flex justify-center items-center gap-3 p-3.5 rounded-md text-sm font-medium text-white-200 bg-gray-900 hover:bg-gray-800 active:bg-gray-950">
+		<header class="pl-3 md:pl-6 flex flex-row items-center justify-between">
+			<img class="h-4 md:h-5" src="https://www.dropbox.com/scl/fi/tzovk80jhhab39cugs1c6/logo.svg?rlkey=xc0zfhurcle574jau72e1o01v&st=9nh8gsic&raw=1" />
+			
+			
+			
+			<div class="w-[25rem] hidden md:flex flex-row">
+				<a href="#" class="flex-1 flex justify-center items-center gap-3 p-3.5 text-sm font-medium text-white-200 bg-gray-900 hover:bg-gray-800 active:bg-gray-950">
 					<img src="https://www.dropbox.com/scl/fi/wgcbt8l6m0y7gv8blt10y/maincast-icon.svg?rlkey=gekfcimjvbe9gbu56njoa9f24&st=iqe6sqol&raw=1" />
 					<span><span class="uppercase">maincast</span>.com</span>
 					<img src="https://www.dropbox.com/scl/fi/bmzdw0jdxifs3vvqskx74/arrow-up-right-icon.svg?rlkey=hql6mympg84qk2l3j7ziha5h8&st=0foyk94h&raw=1" />
 				</a>
-				<a href="#" class="flex-1 flex justify-center items-center gap-3 p-3.5 rounded-md text-sm font-medium text-gray-900 bg-blue-200 hover:bg-blue-100 active:bg-blue-300">
+				<a href="#" class="flex-1 flex justify-center items-center gap-3 p-3.5 text-sm font-medium text-gray-900 bg-blue-200 hover:bg-blue-100 active:bg-blue-300">
 					<img src="https://www.dropbox.com/scl/fi/thmynsf6zvsuzeve1tc6h/afu-icon.svg?rlkey=0r20pjbhc5wpqazifiyccaq83&st=aeuf3xg8&raw=1" />
 					<span class="uppercase">Підтримати ЗСУ</span>
 				</a>
 			</div>
-			<ul class="text-sm font-light text-blue-200 space-y-2">
-				<li class="py-2"><a href="#" class="hover:text-blue-100 active:text-blue-300">Угода користувача</a></li>
-				<li class="py-2"><a href="#" class="hover:text-blue-100 active:text-blue-300">Політика конфіденційності</a></li>
-				<li class="flex flex-row gap-x-3 py-2"><span>Підтримка:</span><a href="#" class="hover:text-blue-100 active:text-blue-300">support@mctv.com.ua</a></li>
-			</ul>
-		
 			
+			
+			<button class="flex md:hidden justify-center items-center gap-3 p-3.5 text-sm font-medium bg-gray-400 hover:bg-gray-300 active:bg-gray-500">
+				<img src="https://www.dropbox.com/scl/fi/5uwc3k8xkz29zkvl34nj7/menu-icon.svg?rlkey=ssllvo5inqqw3blyy4k8r4w4w&st=yno6qqlf&raw=1" />
+			</button>
+		</header>
+
+		<div class="flex flex-col xl:flex-row items-start xl:items-center gap-4 xl:gap-6 px-3 xl:px-6 py-4 bg-gray-700">
+			
+			<a href="#" class="grow-0 flex rounded-md justify-center items-center p-2 text-white-200 bg-gray-400 hover:bg-gray-300 active:bg-gray-500">
+				<img src="https://www.dropbox.com/scl/fi/98r3xouo0e8stt22k7hrw/arrow-left.svg?rlkey=xznqsn5nvof07ui6958va4y6w&st=12ktd5vg&raw=1" />
+			</a>
+			
+			<p class="grow text-white-200 text-2xl font-medium">Політика конфіденційності компанії «Maincast Limited»</p>
+			<p class="text-gray-100 text-sm font-light">Версія: 2.0 Дата: 26 Серпня, 2020</p>
+			
+		</div>
+		
+		<div class="grow flex relative bg-gray-800">
+			<div class="shrink-0 hidden md:block w-[376px] pl-6 py-6 overflow-y-scroll">
+				<ul class="text-gray-100 text-sm font-light">
+					<li class="py-2">1. <a href="#huh" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#kek" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#lol" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+					<li class="py-2">1. <a href="#" class="hover:text-blue-200 active:text-blue-300">Вступ</a></li>
+				</ul>
+			</div>
+			<div class="px-3 py-4 md:p-6 space-y-6 overflow-y-scroll relative">
+				
+				<div class="space-y-4" id="huh">
+					<p class="text-white-200 text-2xl font-medium">1. Вступ</p>
+					<p class="text-gray-100 text-sm font-light">Компанія “Maincast Limited”, зареєстрована за номером HE 386802, з наступною юридичною адресою: Продмоу 75, Ванвью Парквью хаус (Prodromou, 75, Oneworld Parkview house), поверх 3, офіс 304, 2063, Нікосія, Кіпр, разом з її дочірніми компаніями (афілійованими особами), філіями, співробітниками, посадовими особами та директорами в залежності від ситуації (надалі за текстом іменуються як “Maincast”, “Компанія”, “ми”, “нас”, “наш”), є компанією, яка надає послуги з організації кіберспортивних заходів, що разом із функціями та послугами, які надаються, визначаються та надалі за текстом іменуються як “Послуги”.
+					<br />
+					<br />
+					Компанія поважає конфіденційність своїх користувачів (надалі за текстом іменуються як “ви”, “ваш”). Ми вважаємо важливим, щоб ви приймали обґрунтовані рішення щодо використання наших Послуг на основі вашого розуміння, яку саме інформацію ми збираємо при використанні нашого Веб-сайту, що ми робимо з такою інформацією, як ми її обробляємо, яким особам ми її передаємо, а також щодо ваших прав та вибору стосовно оброблюваної нами інформації. З цією метою ми розробили справжню Політику конфіденційності, де детальніше описані наші методи забезпечення конфіденційності при використанні або іншій взаємодії з нашим Веб-сайтом.
+					Для отримання більш детальної інформації про правила та умови використання Веб-сайту, будь ласка, ознайомтеся з нашими Умовами надання послуг (надалі за текстом іменуються як “Умови”). Зверніть увагу, що справжня Політика конфіденційності є невід’ємною частиною Умов, а всі терміни повинні використовуватися у тих самих значеннях, що й визначені в Умовах, якщо інше не зазначено у цьому документі. Наша Політика конфіденційності та наші методи забезпечення конфіденційності відповідають Загальному регламенту захисту даних (2016/679) (надалі за текстом іменується як “GDPR)”, Національного закону, що передбачає захист фізичних осіб стосовно обробки персональних даних та вільного переміщення таких даних (Закон 125(I)/2018 Республіки Кіпр) та іншим застосовним нормативно-правовим актам у сфері захисту персональних даних.</p>
+				</div>
+				
+				<div class="space-y-4" id="kek">
+					<p class="text-white-200 text-2xl font-medium">1. Вступ</p>
+					<p class="text-gray-100 text-sm font-light">Компанія “Maincast Limited”, зареєстрована за номером HE 386802, з наступною юридичною адресою: Продмоу 75, Ванвью Парквью хаус (Prodromou, 75, Oneworld Parkview house), поверх 3, офіс 304, 2063, Нікосія, Кіпр, разом з її дочірніми компаніями (афілійованими особами), філіями, співробітниками, посадовими особами та директорами в залежності від ситуації (надалі за текстом іменуються як “Maincast”, “Компанія”, “ми”, “нас”, “наш”), є компанією, яка надає послуги з організації кіберспортивних заходів, що разом із функціями та послугами, які надаються, визначаються та надалі за текстом іменуються як “Послуги”.
+					<br />
+					<br />
+					Компанія поважає конфіденційність своїх користувачів (надалі за текстом іменуються як “ви”, “ваш”). Ми вважаємо важливим, щоб ви приймали обґрунтовані рішення щодо використання наших Послуг на основі вашого розуміння, яку саме інформацію ми збираємо при використанні нашого Веб-сайту, що ми робимо з такою інформацією, як ми її обробляємо, яким особам ми її передаємо, а також щодо ваших прав та вибору стосовно оброблюваної нами інформації. З цією метою ми розробили справжню Політику конфіденційності, де детальніше описані наші методи забезпечення конфіденційності при використанні або іншій взаємодії з нашим Веб-сайтом.
+					Для отримання більш детальної інформації про правила та умови використання Веб-сайту, будь ласка, ознайомтеся з нашими Умовами надання послуг (надалі за текстом іменуються як “Умови”). Зверніть увагу, що справжня Політика конфіденційності є невід’ємною частиною Умов, а всі терміни повинні використовуватися у тих самих значеннях, що й визначені в Умовах, якщо інше не зазначено у цьому документі. Наша Політика конфіденційності та наші методи забезпечення конфіденційності відповідають Загальному регламенту захисту даних (2016/679) (надалі за текстом іменується як “GDPR)”, Національного закону, що передбачає захист фізичних осіб стосовно обробки персональних даних та вільного переміщення таких даних (Закон 125(I)/2018 Республіки Кіпр) та іншим застосовним нормативно-правовим актам у сфері захисту персональних даних.</p>
+				</div>
+				
+				<div class="space-y-4" id="lol">
+					<p class="text-white-200 text-2xl font-medium">1. Вступ</p>
+					<p class="text-gray-100 text-sm font-light">Компанія “Maincast Limited”, зареєстрована за номером HE 386802, з наступною юридичною адресою: Продмоу 75, Ванвью Парквью хаус (Prodromou, 75, Oneworld Parkview house), поверх 3, офіс 304, 2063, Нікосія, Кіпр, разом з її дочірніми компаніями (афілійованими особами), філіями, співробітниками, посадовими особами та директорами в залежності від ситуації (надалі за текстом іменуються як “Maincast”, “Компанія”, “ми”, “нас”, “наш”), є компанією, яка надає послуги з організації кіберспортивних заходів, що разом із функціями та послугами, які надаються, визначаються та надалі за текстом іменуються як “Послуги”.
+					<br />
+					<br />
+					Компанія поважає конфіденційність своїх користувачів (надалі за текстом іменуються як “ви”, “ваш”). Ми вважаємо важливим, щоб ви приймали обґрунтовані рішення щодо використання наших Послуг на основі вашого розуміння, яку саме інформацію ми збираємо при використанні нашого Веб-сайту, що ми робимо з такою інформацією, як ми її обробляємо, яким особам ми її передаємо, а також щодо ваших прав та вибору стосовно оброблюваної нами інформації. З цією метою ми розробили справжню Політику конфіденційності, де детальніше описані наші методи забезпечення конфіденційності при використанні або іншій взаємодії з нашим Веб-сайтом.
+					Для отримання більш детальної інформації про правила та умови використання Веб-сайту, будь ласка, ознайомтеся з нашими Умовами надання послуг (надалі за текстом іменуються як “Умови”). Зверніть увагу, що справжня Політика конфіденційності є невід’ємною частиною Умов, а всі терміни повинні використовуватися у тих самих значеннях, що й визначені в Умовах, якщо інше не зазначено у цьому документі. Наша Політика конфіденційності та наші методи забезпечення конфіденційності відповідають Загальному регламенту захисту даних (2016/679) (надалі за текстом іменується як “GDPR)”, Національного закону, що передбачає захист фізичних осіб стосовно обробки персональних даних та вільного переміщення таких даних (Закон 125(I)/2018 Республіки Кіпр) та іншим застосовним нормативно-правовим актам у сфері захисту персональних даних.</p>
+				</div>
+		
+			</div>
+			
+			<div class="absolute bottom-0 h-6 w-full bg-gradient-to-t from-gray-800"></div>
+
 			
 		</div>
 
-		<div class="grow md:grid grid-cols-temp">
-			
-		  <div class="bg-gray-700">
-		
-			  <iframe id="cosmoframe" frameBorder="0" scrolling="no" allowfullscreen onload="access()"></iframe>
-		
-		
-			  <iframe hidden class="w-full h-[202px] md:h-[585px]" src="https://live-maincast.cosmonova-broadcast.tv/player?autoplay=1" allow="autoplay *; fullscreen *" allowfullscreen="true"></iframe>
-			  <div class="p-3">
-				  <div class="flex relative md:mx-3">
-					  <div class="flex overflow-hidden gap-3">
-						  <span class="w-12 h-12 flex justify-center items-center shrink-0 rounded-md bg-gray-900">
-							  <img src="https://www.dropbox.com/scl/fi/9vl4qq8ei0r9ez4ycw8ye/logo-ms1.svg?rlkey=ihovvm73mo50xvp1z7ip22qvh&st=jcuf9xq3&raw=1" />
-						  </span>
-						  <div class="flex flex-col gap-1">
-							  <p class="text-temp text-white-200 font-medium whitespace-nowrap">Копенгаген (Данія) - Галатасарай (Туреччина). Ліга чемпіонів UEFA. Сезон 2023/24.</p>
-							  <div class="flex gap-2">
-								  <span class="w-5 h-5 bg-gray-100"></span>
-								  <p class="text-sm text-gray-100 font-light whitespace-nowrap uppercase">Sport 1</p>
-							  </div>
-						  </div>
-					  </div>
-					  <div class="absolute right-0 h-full w-6 bg-gradient-to-l from-gray-700"></div>
-				  </div>
-			  </div>
-			</div>
-		  <div class="row-span-2 border-l border-gray-800 bg-gray-700">
-			  <ul class="flex md:px-3 py-1 md:py-2 text-temp font-medium bg-gray-600 border-b border-gray-800">
-				  <li class="flex text-white-200"><a class="p-3">Канали</a></li>
-				  <li class="flex text-gray-100 hidden"><a class="p-3">Програма</a></li>
-			  </ul>
-			  <ul>
-				  <li>
-					  <div class="p-3 group hover:bg-gray-500 active:bg-gray-400">
-							<div class="flex relative md:mx-3">
-								<div class="flex overflow-hidden gap-3">
-									<span class="w-12 h-12 flex justify-center items-center shrink-0 rounded-md bg-gray-900">
-										<img src="https://www.dropbox.com/scl/fi/9vl4qq8ei0r9ez4ycw8ye/logo-ms1.svg?rlkey=ihovvm73mo50xvp1z7ip22qvh&st=jcuf9xq3&raw=1" />
-									</span>
-									<div class="flex flex-col gap-1">
-										<p class="text-base text-white-200 font-medium whitespace-nowrap uppercase">Sport 1</p>
-										<div class="flex gap-2">
-											<span class="w-5 h-5 bg-gray-100 group-hover:bg-blue-200"></span>
-											<p class="text-sm text-gray-100 group-hover:text-blue-200 font-light whitespace-nowrap">Копенгаген (Данія) - Галатасарай (Туреччина). Ліга чемпіонів UEFA. Сезон 2023/24.</p>
-										</div>
-									</div>
-								</div>
-								<div class="grow absolute right-0 h-full w-6 bg-gradient-to-l from-gray-700 group-hover:from-gray-500 group-active:from-gray-400"></div>
-							</div>
-						</div>
-				  </li>
-				  <li>
-						<div class="p-3 group hover:bg-gray-500 active:bg-gray-400">
-							  <div class="flex relative md:mx-3">
-								  <div class="flex overflow-hidden gap-3">
-									  <span class="w-12 h-12 flex justify-center items-center shrink-0 rounded-md bg-gray-900">
-										  <img src="https://www.dropbox.com/scl/fi/9k42uvcq24248xao2kq5o/logo-ms2.svg?rlkey=38xunq1oioawesejhfl1r563x&st=rn7nn30d&raw=1" />
-									  </span>
-									  <div class="flex flex-col gap-1">
-										  <p class="text-base text-white-200 font-medium whitespace-nowrap uppercase">Sport 2</p>
-										  <div class="flex gap-2">
-											  <span class="w-5 h-5 bg-gray-100 group-hover:bg-blue-200"></span>
-											  <p class="text-sm text-gray-100 group-hover:text-blue-200 font-light whitespace-nowrap">Копенгаген (Данія) - Галатасарай (Туреччина). Ліга чемпіонів UEFA. Сезон 2023/24.</p>
-										  </div>
-									  </div>
-								  </div>
-								  <div class="grow absolute right-0 h-full w-6 bg-gradient-to-l from-gray-700 group-hover:from-gray-500 group-active:from-gray-400"></div>
-							  </div>
-						  </div>
-					</li>
-					<li>
-						  <div class="p-3 group hover:bg-gray-500 active:bg-gray-400">
-								<div class="flex relative md:mx-3">
-									<div class="flex overflow-hidden gap-3">
-										<span class="w-12 h-12 flex justify-center items-center shrink-0 rounded-md bg-gray-900">
-											<img src="https://www.dropbox.com/scl/fi/ziimk9u0o7emocy0g3ybi/logo-ms3.svg?rlkey=dvvb5tribm5k4d4rczkndry9u&st=e6pdt0xr&raw=1" />
-										</span>
-										<div class="flex flex-col gap-1">
-											<p class="text-base text-white-200 font-medium whitespace-nowrap uppercase">Sport 3</p>
-											<div class="flex gap-2">
-												<span class="w-5 h-5 bg-gray-100 group-hover:bg-blue-200"></span>
-												<p class="text-sm text-gray-100 group-hover:text-blue-200 font-light whitespace-nowrap">Копенгаген (Данія) - Галатасарай (Туреччина). Ліга чемпіонів UEFA. Сезон 2023/24.</p>
-											</div>
-										</div>
-									</div>
-									<div class="grow absolute right-0 h-full w-6 bg-gradient-to-l from-gray-700 group-hover:from-gray-500 group-active:from-gray-400"></div>
-								</div>
-							</div>
-					  </li>
-			  </ul>
-		</div>
-		  <div class="py-4 xl:py-6 flex items-center justify-center bg-gray-800">
-			  <img class="w-[320px] h-[100px] xl:hidden" src="https://www.dropbox.com/scl/fi/th9xpj6530w20uwha3pp2/ad-banner-mobile.png?rlkey=crhgnbv5kpp1hc7m628qmeeki&st=zszvzuzj&raw=1" />
-			  <img class="w-[728px] h-[90px] hidden xl:block" src="https://www.dropbox.com/scl/fi/fkfnotkdyk53jg82371wx/ad-banner-desktop.png?rlkey=hwhyy5rlmxl8ziqmmitrpke3j&st=dcuk9h0s&raw=1" />
-		  </div>
-		  
-		</div>
-		
+	
 		<footer class="flex flex-col lg:flex-row gap-4 lg:gap-6 px-3 lg:px-6 py-4 lg:py-3 text-sm font-light bg-gray-900 text-gray-100">
 			  <p><a href="#" class="hover:text-blue-200 active:text-blue-300">Угода користувача</a></p>
 			  <p><a href="#" class="text-gray-100 hover:text-blue-200 active:text-blue-300">Політика конфіденційності</a></p>
 			  <p class="flex flex-row gap-x-3"><span>Підтримка:</span><a href="#" class="hover:text-blue-200 active:text-blue-300">support@mctv.com.ua</a></p>
 			  <p class="grow lg:order-first">© 2024 <a href="#" class="hover:text-blue-200 active:text-blue-300">Maincast</a>. Всі права захищено.</p>
 		 </footer>
-		
 	</div>
+	
+	
+	
+	
+
+	
 
   <script>
 	  const { createApp, ref } = Vue
 	  
 	  createApp({
 		setup() {
-		  const flag = ref(false)
+		  const message = ref('TV')
 		  return {
-			flag
+			message
 		  }
 		}
 	  }).mount('#app')
