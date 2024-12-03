@@ -4,6 +4,7 @@
 	<title>MAINCAST.TV</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://www.dropbox.com/scl/fi/wxpfl82kpzkc36xhv9mu1/mctv-favicon.png?rlkey=7ggs17f7me6owuh4jt7j1opif&st=t5jyufav&dl=1">
   <link rel="icon" type="image/x-icon" href="https://www.dropbox.com/scl/fi/rqyp8lwf0zpxw3l8oytdt/favicon.ico?rlkey=rt0b30mz6yobaumnadx5cl4s9&st=h3vdq969&raw=1">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -59,12 +60,12 @@
 		
 		
 		<div class="w-[25rem] hidden md:flex flex-row">
-			<a href="#" class="flex-1 flex justify-center items-center gap-3 p-3.5 text-sm font-medium text-white-200 bg-gray-900 hover:bg-gray-800 active:bg-gray-950">
+			<a href="https://maincast.com" class="flex-1 flex justify-center items-center gap-3 p-3.5 text-sm font-medium text-white-200 bg-gray-900 hover:bg-gray-800 active:bg-gray-950">
 				<img src="https://www.dropbox.com/scl/fi/wgcbt8l6m0y7gv8blt10y/maincast-icon.svg?rlkey=gekfcimjvbe9gbu56njoa9f24&st=iqe6sqol&raw=1" />
 				<span><span class="uppercase">maincast</span>.com</span>
 				<img src="https://www.dropbox.com/scl/fi/bmzdw0jdxifs3vvqskx74/arrow-up-right-icon.svg?rlkey=hql6mympg84qk2l3j7ziha5h8&st=0foyk94h&raw=1" />
 			</a>
-			<a href="#" class="flex-1 flex justify-center items-center gap-3 p-3.5 text-sm font-medium text-gray-900 bg-blue-200 hover:bg-blue-100 active:bg-blue-300">
+			<a href="https://majorequip.azov.one" class="flex-1 flex justify-center items-center gap-3 p-3.5 text-sm font-medium text-gray-900 bg-blue-200 hover:bg-blue-100 active:bg-blue-300">
 				<img src="https://www.dropbox.com/scl/fi/thmynsf6zvsuzeve1tc6h/afu-icon.svg?rlkey=0r20pjbhc5wpqazifiyccaq83&st=aeuf3xg8&raw=1" />
 				<span class="uppercase">Підтримати ЗСУ</span>
 			</a>
@@ -103,93 +104,11 @@
 			
 		  <div class="bg-gray-700 grow">
 		
-			  <iframe id="cosmoframe" frameBorder="0" scrolling="no" allowfullscreen onload="access()"></iframe>
+			  <iframe class="w-full aspect-video" id="cosmoframe" frameBorder="0" scrolling="no" allowfullscreen onload="access()"></iframe>
 		
 		
 			  <iframe hidden class="w-full h-[202px] md:h-[585px]" src="https://live-maincast.cosmonova-broadcast.tv/player?autoplay=1" allow="autoplay *; fullscreen *" allowfullscreen="true"></iframe>
-			  <div class="p-3 hidden">
-				  <div class="flex relative md:mx-3">
-					  <div class="flex overflow-hidden gap-3">
-						  <span class="w-12 h-12 flex justify-center items-center shrink-0 rounded-md bg-gray-900">
-							  <img src="https://www.dropbox.com/scl/fi/9vl4qq8ei0r9ez4ycw8ye/logo-ms1.svg?rlkey=ihovvm73mo50xvp1z7ip22qvh&st=jcuf9xq3&raw=1" />
-						  </span>
-						  <div class="flex flex-col gap-1">
-							  <p class="text-temp text-white-200 font-medium whitespace-nowrap">Копенгаген (Данія) - Галатасарай (Туреччина). Ліга чемпіонів UEFA. Сезон 2023/24.</p>
-							  <div class="flex gap-2">
-								  <span class="w-5 h-5 bg-gray-100"></span>
-								  <p class="text-sm text-gray-100 font-light whitespace-nowrap uppercase">Sport 1</p>
-							  </div>
-						  </div>
-					  </div>
-					  <div class="absolute right-0 h-full w-6 bg-gradient-to-l from-gray-700"></div>
-				  </div>
-			  </div>
 			</div>
-		  <div class="row-span-2 border-l border-gray-800 bg-gray-700 hidden">
-			  <ul class="flex md:px-3 py-1 md:py-2 text-temp font-medium bg-gray-600 border-b border-gray-800">
-				  <li class="flex text-white-200"><a class="p-3">Канали</a></li>
-				  <li class="flex text-gray-100 hidden"><a class="p-3">Програма</a></li>
-			  </ul>
-			  <ul>
-				  <li>
-					  <div class="p-3 group hover:bg-gray-500 active:bg-gray-400">
-							<div class="flex relative md:mx-3">
-								<div class="flex overflow-hidden gap-3">
-									<span class="w-12 h-12 flex justify-center items-center shrink-0 rounded-md bg-gray-900">
-										<img src="https://www.dropbox.com/scl/fi/9vl4qq8ei0r9ez4ycw8ye/logo-ms1.svg?rlkey=ihovvm73mo50xvp1z7ip22qvh&st=jcuf9xq3&raw=1" />
-									</span>
-									<div class="flex flex-col gap-1">
-										<p class="text-base text-white-200 font-medium whitespace-nowrap uppercase">Sport 1</p>
-										<div class="flex gap-2">
-											<span class="w-5 h-5 bg-gray-100 group-hover:bg-blue-200"></span>
-											<p class="text-sm text-gray-100 group-hover:text-blue-200 font-light whitespace-nowrap">Копенгаген (Данія) - Галатасарай (Туреччина). Ліга чемпіонів UEFA. Сезон 2023/24.</p>
-										</div>
-									</div>
-								</div>
-								<div class="grow absolute right-0 h-full w-6 bg-gradient-to-l from-gray-700 group-hover:from-gray-500 group-active:from-gray-400"></div>
-							</div>
-						</div>
-				  </li>
-				  <li>
-						<div class="p-3 group hover:bg-gray-500 active:bg-gray-400">
-							  <div class="flex relative md:mx-3">
-								  <div class="flex overflow-hidden gap-3">
-									  <span class="w-12 h-12 flex justify-center items-center shrink-0 rounded-md bg-gray-900">
-										  <img src="https://www.dropbox.com/scl/fi/9k42uvcq24248xao2kq5o/logo-ms2.svg?rlkey=38xunq1oioawesejhfl1r563x&st=rn7nn30d&raw=1" />
-									  </span>
-									  <div class="flex flex-col gap-1">
-										  <p class="text-base text-white-200 font-medium whitespace-nowrap uppercase">Sport 2</p>
-										  <div class="flex gap-2">
-											  <span class="w-5 h-5 bg-gray-100 group-hover:bg-blue-200"></span>
-											  <p class="text-sm text-gray-100 group-hover:text-blue-200 font-light whitespace-nowrap">Копенгаген (Данія) - Галатасарай (Туреччина). Ліга чемпіонів UEFA. Сезон 2023/24.</p>
-										  </div>
-									  </div>
-								  </div>
-								  <div class="grow absolute right-0 h-full w-6 bg-gradient-to-l from-gray-700 group-hover:from-gray-500 group-active:from-gray-400"></div>
-							  </div>
-						  </div>
-					</li>
-					<li>
-						  <div class="p-3 group hover:bg-gray-500 active:bg-gray-400">
-								<div class="flex relative md:mx-3">
-									<div class="flex overflow-hidden gap-3">
-										<span class="w-12 h-12 flex justify-center items-center shrink-0 rounded-md bg-gray-900">
-											<img src="https://www.dropbox.com/scl/fi/ziimk9u0o7emocy0g3ybi/logo-ms3.svg?rlkey=dvvb5tribm5k4d4rczkndry9u&st=e6pdt0xr&raw=1" />
-										</span>
-										<div class="flex flex-col gap-1">
-											<p class="text-base text-white-200 font-medium whitespace-nowrap uppercase">Sport 3</p>
-											<div class="flex gap-2">
-												<span class="w-5 h-5 bg-gray-100 group-hover:bg-blue-200"></span>
-												<p class="text-sm text-gray-100 group-hover:text-blue-200 font-light whitespace-nowrap">Копенгаген (Данія) - Галатасарай (Туреччина). Ліга чемпіонів UEFA. Сезон 2023/24.</p>
-											</div>
-										</div>
-									</div>
-									<div class="grow absolute right-0 h-full w-6 bg-gradient-to-l from-gray-700 group-hover:from-gray-500 group-active:from-gray-400"></div>
-								</div>
-							</div>
-					  </li>
-			  </ul>
-		</div>
 		  <div class="py-4 xl:py-6 flex items-center justify-center bg-gray-800">
 			  <img class="w-[320px] h-[100px] xl:hidden" src="https://www.dropbox.com/scl/fi/th9xpj6530w20uwha3pp2/ad-banner-mobile.png?rlkey=crhgnbv5kpp1hc7m628qmeeki&st=zszvzuzj&raw=1" />
 			  <img class="w-[728px] h-[90px] hidden xl:block" src="https://www.dropbox.com/scl/fi/fkfnotkdyk53jg82371wx/ad-banner-desktop.png?rlkey=hwhyy5rlmxl8ziqmmitrpke3j&st=dcuk9h0s&raw=1" />
@@ -253,8 +172,8 @@
 	var _cosmoframe = document.getElementById("cosmoframe");
 	const width = document.getElementById('cosmoframe').parentNode.clientWidth;
 	  const height = Math.floor((width * 9)/16);
-	_cosmoframe.setAttribute("style", "border:0; overflow: hidden; width:" + width + "px; height:" + height + "px;");
-	_cosmoframe.setAttribute("autoplay", "autoplay");
+	// _cosmoframe.setAttribute("style", "border:0; overflow: hidden; width:" + width + "px; height:" + height + "px;");
+	// _cosmoframe.setAttribute("autoplay", "autoplay");
 
 	_cosmoframe.contentWindow.location.href = "https://live-maincast.cosmonova-broadcast.tv/player";
 	
